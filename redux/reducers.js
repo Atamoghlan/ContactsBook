@@ -9,9 +9,9 @@ export const addInfoReducer = (state = initialState, action) => {
             return {state,
                 usersList: [...state.usersList, action.payload]
             }
-            case "ClearList":
-                console.log("ClearList", action.payload)
-                return {
+        case "ClearList":
+               
+                return {state,
                     usersList: []
                 }
         default:

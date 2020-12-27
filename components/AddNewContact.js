@@ -4,11 +4,8 @@ import { addInfo } from "../redux/actions";
 import { ClearList } from "../redux/actions";
 import { connect } from 'react-redux';
 
-class ContactAddingForm extends Component {
-    renderList() {
-        this.props.addContact(this.name, this.phoneNumber);
-        console.log(this.prop)
-    }
+class AddNewContact extends Component {
+    
     render() {
         let plusIcon = require('../icons/plus.png')
         let clearIcon = require('../icons/Clear.png')
@@ -27,7 +24,7 @@ class ContactAddingForm extends Component {
                     />
                     <TouchableOpacity
                         onPress={() => this.props.clearList()}
-                        style={styles.btn}>
+                        style={styles.btnClear}>
                         <Image
                             source={clearIcon}
                             style={styles.clearIcon} />
@@ -35,8 +32,8 @@ class ContactAddingForm extends Component {
                 </View>
                 <View>
                     <TouchableOpacity
-                        onPress={() => this.renderList()}
-                        style={styles.btn}>
+                        onPress={() => this.props.addContact(this.name,this.phoneNumber)}
+                        style={styles.btnPlus}>
                         <Image
                             source={plusIcon}
                             style={styles.plusButton}/>
@@ -57,7 +54,7 @@ const mapDispatchToProps = (dispatch) => {
 }
 
 
-export default connect(null, mapDispatchToProps)(ContactAddingForm);
+export default connect(null, mapDispatchToProps)(AddNewContact);
 
 const styles = StyleSheet.create({
     container: {
@@ -77,13 +74,18 @@ const styles = StyleSheet.create({
         padding: 5, fontSize: 25, marginTop: 5
     },
     plusButton: { 
-        marginBottom: 50,width: 50, height: 50 
+        width: 50, height: 50 
     },
-    btn: {
-        width: 80, height: 50,
-        alignItems: 'center', justifyContent: 'center'
+    btnPlus: {
+        marginBottom: 80, marginHorizontal: 15 ,width: 60, height: 60,
+        alignItems: 'center', justifyContent: 'center',
+    },
+    btnClear: {
+        width: 120, height: 55, 
+        alignItems: 'center', justifyContent: 'center', marginBottom: 20,
+        marginTop: 10, marginLeft: 100, 
     },
     clearIcon: { 
-        marginTop: 30, marginLeft: 250, width: 120, height: 50 
+        width: 120, height: 50 
     }
 })

@@ -13,7 +13,9 @@ export const addInfo = (name, phoneNumber) => {
     }
 })};
 export const ClearList = () => {
+    console.log("ClearList");
     return ({
+        
     type: "ClearList",
     payload: {}
 })};

@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import {ScrollView, View} from 'react-native';
-import ContactAddingForm from './ContactAddingForm';
+import AddNewContact from './AddNewContact';
 import AllContacts from "./AllContacts";
 
 
@@ -10,7 +10,7 @@ class ContactList extends Component {
     return(
       <View>
         <ScrollView>
-          <ContactAddingForm />
+          <AddNewContact />
           <AllContacts />
         </ScrollView>
       </View>
